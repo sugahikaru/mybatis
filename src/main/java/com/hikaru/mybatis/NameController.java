@@ -12,6 +12,11 @@ public class NameController {
     public NameController(NameMapper nameMapper) {
         this.nameMapper = nameMapper;
     }
+
+    @GetMapping("/names")
+    public List<Name> findAll() {
+        return nameMapper.findAll();
+    }
     @GetMapping("/names")
     public List<Name> findByNames(@RequestParam String startsWith) {
         return nameMapper.findByNameStartingWith(startsWith);
